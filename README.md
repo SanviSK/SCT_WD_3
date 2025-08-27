@@ -2,7 +2,6 @@
 
 Qurious 🧠 is a **web-based multiple-choice quiz application** built with **HTML, CSS, and JavaScript**.  
 It allows users to **sign up, log in, choose quiz categories, answer questions, and track scores on a leaderboard**.  
-This project was developed as part of a **third-year Computer Science Engineering course** focused on **mobile & web application development**.
 
 ---
 
@@ -20,7 +19,6 @@ This project was developed as part of a **third-year Computer Science Engineerin
   - **Timer per question:** 15 seconds with a dynamic time bar.
   - Shows correct/wrong highlights after answering.
   - **Handles timeout** and automatically moves to next question.
-  - Options are displayed in **fixed order** (no shuffling).
 
 - **Leaderboard**
   - Save score after completing a quiz.
@@ -49,7 +47,7 @@ This project was developed as part of a **third-year Computer Science Engineerin
 git clone https://github.com/SanviSK/SCT_WD_3.git
 cd qurious-quiz
 
-Open `index.html` in a web browser (Chrome/Firefox recommended).
+2. Open `index.html` in a web browser (Chrome/Firefox recommended).
 
 No additional dependencies required. All data is stored in the browser's localStorage.
 
