@@ -1,9 +1,4 @@
-// script.js
-// Uses QUESTIONS from questions.js
-// Handles auth (localStorage), quiz flow, timer (15s), marking, leaderboard
-
 document.addEventListener('DOMContentLoaded', () => {
-  // DOM bindings
   const loginScreen = id('login-screen'), signupScreen = id('signup-screen'),
         homeScreen = id('home-screen'), quizScreen = id('quiz-screen'),
         resultScreen = id('result-screen'), lbScreen = id('leaderboard-screen');
@@ -17,8 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const resultText = id('result-text'), saveLbBtn = id('save-leaderboard'), playAgain = id('play-again'),
         leaderboardList = id('leaderboard-list'), backHome = id('back-home'), clearLb = id('clear-lb');
-
-  // state
   let state = {
     user: null,
     category: null,
@@ -29,11 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     intervalId: null,
     allowAnswer: true
   };
-
-  // init
   startDemo();
-
-  // Event wiring
   loginBtn.addEventListener('click', loginUser);
   gotoSignup.addEventListener('click', () => showView('signup'));
   signupBtn.addEventListener('click', signupUser);
@@ -45,12 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
   playAgain.addEventListener('click', () => { showView('home'); });
   backHome.addEventListener('click', () => showView('home'));
   clearLb.addEventListener('click', clearLeaderboard);
-
-  // ---------- helpers ----------
   function id(x){ return document.getElementById(x); }
 
   function showView(name){
-    // hide all
     [loginScreen, signupScreen, homeScreen, quizScreen, resultScreen, lbScreen].forEach(s => s.style.display='none');
     if(name==='login') loginScreen.style.display='block';
     if(name==='signup') signupScreen.style.display='block';
@@ -60,13 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if(name==='leaderboard') lbScreen.style.display='block';
   }
 
-  // ---------- storage ----------
   function getUsers(){ return JSON.parse(localStorage.getItem('sc_users') || '{}'); }
   function saveUsers(u){ localStorage.setItem('sc_users', JSON.stringify(u)); }
   function getLeaderboard(){ return JSON.parse(localStorage.getItem('sc_leaderboard') || '[]'); }
   function saveLeaderboard(l){ localStorage.setItem('sc_leaderboard', JSON.stringify(l)); }
-
-  // ---------- auth ----------
   function signupUser(){
     const u = id('signup-username').value.trim(), p = id('signup-password').value;
     if(!u || !p){ alert('Enter username & password'); return; }
@@ -94,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
     showView('login');
   }
 
-  // ---------- categories ----------
   function renderCategories(){
     categoriesDiv.innerHTML = '';
     Object.keys(QUESTIONS).forEach(cat => {
@@ -105,12 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
       categoriesDiv.appendChild(el);
     });
   }
-
-  // ---------- quiz flow ----------
   function startQuiz(cat){
     state.category = cat;
-    // shallow copy
-    state.questions = QUESTIONS[cat].slice(0, 5); // ensure 5
+    state.questions = QUESTIONS[cat].slice(0, 5); 
     state.index = 0; state.score = 0;
     id('current-cat').textContent = cat;
     showView('quiz');
@@ -205,12 +184,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if(isCorrect) state.score += 1;
-
-    // short delay to show colors then next question
     setTimeout(() => { state.index += 1; nextQuestion(); }, 1200);
   }
-
-  // ---------- timer (15s) ----------
   function startTimer(){
     state.timer = 15;
     timeLeftEl.textContent = state.timer;
@@ -252,8 +227,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => { state.index += 1; nextQuestion(); }, 1200);
   }
-
-  // ---------- navigation ----------
   function nextQuestion(){
     clearTimer();
     state.allowAnswer = true;
@@ -273,8 +246,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const text = exited ? 'You exited the quiz.' : `You scored ${state.score} out of ${state.questions.length}`;
     resultText.textContent = text;
   }
-
-  // ---------- leaderboard ----------
   function saveAndGotoLeaderboard(){
     const lb = getLeaderboard();
     lb.push({ name: state.user || 'Guest', score: state.score, date: Date.now() });
@@ -303,7 +274,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if(confirm('Clear leaderboard?')){ saveLeaderboard([]); renderLeaderboard(); }
   }
 
-  // ---------- util start/demo ----------
   function startDemo(){ showView('login'); }
 
 });

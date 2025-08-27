@@ -1,9 +1,3 @@
-// questions.js
-// 5 questions per category — modify any question or answers as needed.
-// For 'single' type, answer is index (0-based).
-// For 'multi' type, answer is array of indexes. (none of current ones use multi by default).
-// For 'text' type, answer is the string expected (case-insensitive compared as trimmed).
-
 const QUESTIONS = {
   sports: [
     { type: 'single', q: 'Which country won the FIFA World Cup in 2018?', options: ['Brazil','France','Germany','Argentina'], answer: 1 },
