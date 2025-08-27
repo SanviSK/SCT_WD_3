@@ -40,6 +40,84 @@ It allows users to **sign up, log in, choose quiz categories, answer questions, 
 
 ---
 
+## Usage
+
+**Sign Up / Login**  
+- Enter a username and password to create an account.  
+- Login to access quiz categories.
+
+**Select Category**  
+- Choose one of the available categories: Sports, Aptitude, Engineering, Politics, Current Affairs.
+
+**Answer Questions**  
+- Each question has a **15-second timer**.  
+- Select **one option** for each multiple-choice question.  
+- Correct/wrong feedback is shown visually.  
+- Timeouts automatically highlight the correct answer and move to the next question.
+
+**Results & Leaderboard**  
+- Score is displayed at the end of the quiz.  
+- Save your score to the leaderboard.  
+- Leaderboard shows top performers with medals.  
+- Option to clear leaderboard and start fresh.
+
+---
+
+## Categories
+
+- **Sports** – FIFA, cricket, tennis, Olympics, swimming.  
+- **Aptitude** – Math, series, percentages, shapes, problem-solving.  
+- **Engineering** – Programming, OSI model, CPU, algorithms, data structures.  
+- **Politics** – Government, laws, elections, constitutions, suffrage.  
+- **Current Affairs** – Global events, climate, technology, organizations.
+
+---
+
+## Future Environments / States
+
+- **Dynamic Time Bar** – Change color as timer decreases (green → orange → red).  
+- **Fun Facts / Explanations** – Show after each question to enhance learning.  
+- **Expanded Question Types** – Support text input and multiple correct answers.  
+- **Backend Integration** – Persistent user accounts, global leaderboard, and cloud storage.  
+- **Adaptive Difficulty** – Increase question difficulty based on performance.  
+- **Dark / Light Theme Toggle** – Allow users to switch UI themes.  
+- **Mobile App Version** – Transform web app into a cross-platform mobile app.  
+
+---
+
+## File Structure
+
+qurious-quiz/
+├─ index.html # Main HTML file
+├─ style.css # CSS styling for UI
+├─ script.js # Quiz logic and flow
+├─ questions.js # Multiple-choice questions
+└─ README.md # Project documentation 
+
+
+---
+
+## Technologies Used
+
+- **HTML5** – Structure and layout  
+- **CSS3** – Styling and responsive design  
+- **JavaScript (ES6)** – Quiz logic, timer, leaderboard, and interactivity  
+- **LocalStorage** – For user accounts and leaderboard persistence  
+
+---
+
+## Future Improvements
+
+- Add **dynamic time bar color transition** (green → orange → red).  
+- Show **fun facts or explanations** after each question.  
+- Expand to support other question types (text input, multiple correct answers).  
+- Include backend support for **persistent user accounts and a global leaderboard**.  
+- Add **adaptive difficulty** for smarter quizzes.  
+- Introduce **theme toggle** (dark/light).  
+- Prepare for **mobile app deployment** using frameworks like React Native.
+
+---
+
 ## Installation
 
 1. **Clone this repository**:  
@@ -47,5 +125,11 @@ It allows users to **sign up, log in, choose quiz categories, answer questions, 
 
 2. Navigate to the project folder:
 
-   ```bash
-   cd qurious-quiz
+```bash
+cd qurious-quiz
+
+Open index.html in a web browser (Chrome/Firefox recommended).
+
+No additional dependencies are required. All data is stored in the browser's localStorage
+
+---
