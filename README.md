@@ -44,11 +44,14 @@ It allows users to **sign up, log in, choose quiz categories, answer questions, 
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/SanviSK/SCT_WD_3.git
+[Clone this repository](https://github.com/SanviSK/SCT_WD_3.git)
+
 cd qurious-quiz
 
+``` 
 2. Open index.html in a web browser (Chrome/Firefox recommended).
 
 No additional dependencies required. All data is stored in the browser's localStorage.
 
-```
+---
+
