@@ -53,16 +53,16 @@ No additional dependencies required. All data is stored in the browser's localSt
 
 ---
 
-## Usage
+**Usage**
 
-### Sign Up / Login
+**Sign Up / Login**
 - Enter a username and password to create an account.
 - Login to access quiz categories.
 
-### Select Category
+**Select Category**
 - Choose one of the available categories: Sports, Aptitude, Engineering, Politics, Current Affairs.
 
-### Answer Questions
+**Answer Questions**
 - Each question has a 15-second timer.
 - Select **one option** for each multiple-choice question.
 - Correct/wrong feedback is shown visually.
@@ -105,3 +105,4 @@ qurious-quiz/
 - Include backend support for persistent user accounts and a global leaderboard.
 
 ---
+
