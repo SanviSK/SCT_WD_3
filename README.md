@@ -1,11 +1,11 @@
-# Qurious 🧠 - Interactive Quiz App
+# **Qurious 🧠 - Interactive Quiz App**
 
 Qurious 🧠 is a **web-based multiple-choice quiz application** built with **HTML, CSS, and JavaScript**.  
 It allows users to **sign up, log in, choose quiz categories, answer questions, and track scores on a leaderboard**.  
 
 ---
 
-## Features
+## **Features**
 
 - **User Authentication**
   - Sign up with username and password stored locally in browser storage.
@@ -39,44 +39,49 @@ It allows users to **sign up, log in, choose quiz categories, answer questions, 
 
 ---
 
-## Installation
+## **Installation**
 
 1. Clone this repository:
 
 ```bash
 git clone https://github.com/SanviSK/SCT_WD_3.git
 cd qurious-quiz
-
-2. Open `index.html` in a web browser (Chrome/Firefox recommended).
+ 2. Open index.html in a web browser (Chrome/Firefox recommended).
 
 No additional dependencies required. All data is stored in the browser's localStorage.
 
----
+Usage
+Sign Up / Login
 
-**Usage**
+Enter a username and password to create an account.
 
-**Sign Up / Login**
-- Enter a username and password to create an account.
-- Login to access quiz categories.
+Login to access quiz categories.
 
-**Select Category**
-- Choose one of the available categories: Sports, Aptitude, Engineering, Politics, Current Affairs.
+Select Category
 
-**Answer Questions**
-- Each question has a 15-second timer.
-- Select **one option** for each multiple-choice question.
-- Correct/wrong feedback is shown visually.
-- Timeouts automatically highlight the correct answer and move to the next question.
+Choose one of the available categories: Sports, Aptitude, Engineering, Politics, Current Affairs.
 
-### Results & Leaderboard
-- Score is displayed at the end of the quiz.
-- Save your score to the leaderboard.
-- Leaderboard shows top performers with medals.
-- Option to clear leaderboard and start fresh.
+Answer Questions
 
----
+Each question has a 15-second timer.
 
-## File Structure
+Select one option for each multiple-choice question.
+
+Correct/wrong feedback is shown visually.
+
+Timeouts automatically highlight the correct answer and move to the next question.
+
+Results & Leaderboard
+
+Score is displayed at the end of the quiz.
+
+Save your score to the leaderboard.
+
+Leaderboard shows top performers with medals.
+
+Option to clear leaderboard and start fresh.
+
+File Structure
 
 qurious-quiz/
 ├─ index.html # Main HTML file
@@ -85,24 +90,24 @@ qurious-quiz/
 ├─ questions.js # Multiple-choice questions
 └─ README.md # Project documentation
 
+Technologies Used
 
----
+HTML5 – Structure and layout
 
-## Technologies Used
+CSS3 – Styling and responsive design
 
-- **HTML5** – Structure and layout
-- **CSS3** – Styling and responsive design
-- **JavaScript (ES6)** – Quiz logic, timer, leaderboard, and interactivity
-- **LocalStorage** – For user accounts and leaderboard persistence
+JavaScript (ES6) – Quiz logic, timer, leaderboard, and interactivity
 
----
+LocalStorage – For user accounts and leaderboard persistence
 
-## Future Improvements
+Future Improvements
 
-- Add dynamic time bar color transition (green → orange → red).
-- Add fun facts or explanations after each question.
-- Expand to support other question types (text input, multiple correct answers).
-- Include backend support for persistent user accounts and a global leaderboard.
+Add dynamic time bar color transition (green → orange → red).
 
----
+Add fun facts or explanations after each question.
+
+Expand to support other question types (text input, multiple correct answers).
+
+Include backend support for persistent user accounts and a global leaderboard.
+
 
