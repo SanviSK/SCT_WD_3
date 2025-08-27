@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Qurious 🧠</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app card">
+
+    <!-- LOGIN SCREEN -->
+    <section id="login-screen" class="screen">
+      <div class="auth">
+        <div class="logo">Qurious 🧠</div>
+
+        <div class="field">
+          <label class="small">Username</label>
+          <input id="login-username" type="text" placeholder="Enter username">
+        </div>
+
+        <div class="field">
+          <label class="small">Password</label>
+          <input id="login-password" type="password" placeholder="Enter password">
+        </div>
+
+        <div class="row" style="gap:10px">
+          <button class="btn" id="login-btn">Login</button>
+          <button class="btn outline" id="goto-signup">Sign up</button>
+        </div>
+
+        <p class="small muted">This demo stores accounts locally in browser storage.</p>
+      </div>
+    </section>
+
+    <!-- SIGNUP SCREEN -->
+    <section id="signup-screen" class="screen" style="display:none">
+      <div class="auth">
+        <div class="logo">Create account</div>
+
+        <div class="field">
+          <label class="small">Username</label>
+          <input id="signup-username" type="text" placeholder="Choose a username">
+        </div>
+
+        <div class="field">
+          <label class="small">Password</label>
+          <input id="signup-password" type="password" placeholder="Choose a password">
+        </div>
+
+        <div class="row" style="gap:10px">
+          <button class="btn" id="signup-btn">Create</button>
+          <button class="btn outline" id="back-to-login">Back</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOME SCREEN (Categories) -->
+    <section id="home-screen" class="screen" style="display:none">
+      <div class="topbar row space-between">
+        <div>
+          <div class="logo">Qurious 🧠</div>
+          <div class="small muted">Welcome, <span id="user-name">User</span></div>
+        </div>
+
+        <div class="row" style="align-items:center;gap:8px">
+          <button class="btn" id="leaderboard-btn">Leaderboard</button>
+          <button class="btn outline" id="logout-btn">Logout</button>
+        </div>
+      </div>
+
+      <h3 class="title">Choose a category</h3>
+      <div id="categories" class="categories"></div>
+    </section>
+
+    <!-- QUIZ SCREEN -->
+    <section id="quiz-screen" class="screen" style="display:none">
+      <div class="topbar row space-between" style="align-items:center">
+        <button class="btn outline" id="exit-quiz">Exit</button>
+        <div class="small muted">Category: <span id="current-cat"></span></div>
+      </div>
+
+      <div id="question-box" class="question-container"></div>
+
+      <div class="timer-row row" style="align-items:center">
+        <div class="timer">Time left: <span id="time-left">15</span>s</div>
+        <div class="progress" aria-hidden="true">
+          <div id="time-bar" class="bar"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULT SCREEN -->
+    <section id="result-screen" class="screen" style="display:none">
+      <h2>Quiz Complete</h2>
+      <p id="result-text"></p>
+      <div class="row" style="gap:10px">
+        <button class="btn" id="save-leaderboard">Save & View Leaderboard</button>
+        <button class="btn outline" id="play-again">Play again</button>
+      </div>
+    </section>
+
+    <!-- LEADERBOARD SCREEN -->
+    <section id="leaderboard-screen" class="screen" style="display:none">
+      <div class="topbar row space-between">
+        <h2>Leaderboard 🏆</h2>
+        <div class="row" style="gap:8px">
+          <button class="btn" id="back-home">Home</button>
+          <button class="btn outline" id="clear-lb">Clear</button>
+        </div>
+      </div>
+
+      <ol id="leaderboard-list" class="leaderboard-list"></ol>
+    </section>
+
+  </div>
+
+  <!-- Questions first, then script -->
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>  
