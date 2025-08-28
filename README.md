@@ -88,10 +88,15 @@ It allows users to **sign up, log in, choose quiz categories, answer questions, 
 ## File Structure
 
 qurious-quiz/
+
 ├─ index.html # Main HTML file
+
 ├─ style.css # CSS styling for UI
+
 ├─ script.js # Quiz logic and flow
+
 ├─ questions.js # Multiple-choice questions
+
 └─ README.md # Project documentation 
 
 
@@ -133,3 +138,4 @@ Open index.html in a web browser (Chrome/Firefox recommended).
 No additional dependencies are required. All data is stored in the browser's localStorage
 
 ---
+
