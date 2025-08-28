@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+
   const loginScreen = id('login-screen'), signupScreen = id('signup-screen'),
         homeScreen = id('home-screen'), quizScreen = id('quiz-screen'),
         resultScreen = id('result-screen'), lbScreen = id('leaderboard-screen');
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const resultText = id('result-text'), saveLbBtn = id('save-leaderboard'), playAgain = id('play-again'),
         leaderboardList = id('leaderboard-list'), backHome = id('back-home'), clearLb = id('clear-lb');
+
   let state = {
     user: null,
     category: null,
@@ -22,7 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
     intervalId: null,
     allowAnswer: true
   };
+
   startDemo();
+
   loginBtn.addEventListener('click', loginUser);
   gotoSignup.addEventListener('click', () => showView('signup'));
   signupBtn.addEventListener('click', signupUser);
@@ -45,32 +49,58 @@ document.addEventListener('DOMContentLoaded', () => {
     if(name==='result') resultScreen.style.display='block';
     if(name==='leaderboard') lbScreen.style.display='block';
   }
-
   function getUsers(){ return JSON.parse(localStorage.getItem('sc_users') || '{}'); }
   function saveUsers(u){ localStorage.setItem('sc_users', JSON.stringify(u)); }
   function getLeaderboard(){ return JSON.parse(localStorage.getItem('sc_leaderboard') || '[]'); }
   function saveLeaderboard(l){ localStorage.setItem('sc_leaderboard', JSON.stringify(l)); }
-  function signupUser(){
-    const u = id('signup-username').value.trim(), p = id('signup-password').value;
-    if(!u || !p){ alert('Enter username & password'); return; }
-    const users = getUsers();
-    if(users[u]){ alert('Username exists'); return; }
-    users[u] = { password: p, created: Date.now() };
-    saveUsers(users);
-    alert('Account created. Login now.');
-    showView('login');
+function signupUser(){
+  const u = id('signup-username').value.trim(), p = id('signup-password').value;
+  const msg = id("signup-message");
+  msg.innerText = "";
+
+  if(!u || !p){ 
+    msg.style.color = "red";
+    msg.innerText = "⚠️ Enter username & password";
+    return;
+  }
+  const users = getUsers();
+  if(users[u]){ 
+    msg.style.color = "red";
+    msg.innerText = "⚠️ Username already exists!";
+    return;
+  }
+  users[u] = { password: p, created: Date.now() };
+  saveUsers(users);
+  showView('login');
+  const loginMsg = id("login-message");
+  loginMsg.style.color = "green";
+  loginMsg.innerText = "✅ Account Created Successfully!";
+}
+
+function loginUser(){
+  const u = id('login-username').value.trim(), p = id('login-password').value;
+  const msg = id("login-message");
+  msg.innerText = "";
+
+  if(!u || !p){ 
+    msg.style.color = "red";
+    msg.innerText = "⚠️ Enter username & password";
+    return;
+  }
+  const users = getUsers();
+  if(!users[u] || users[u].password !== p){ 
+    msg.style.color = "red";
+    msg.innerText = "❌ Invalid Credentials!";
+    return;
   }
 
-  function loginUser(){
-    const u = id('login-username').value.trim(), p = id('login-password').value;
-    if(!u || !p){ alert('Enter username & password'); return; }
-    const users = getUsers();
-    if(!users[u] || users[u].password !== p){ alert('Invalid credentials'); return; }
-    state.user = u;
-    id('user-name').textContent = u;
-    showView('home');
-    renderCategories();
-  }
+  state.user = u;
+  id('user-name').textContent = u;
+  showView('home');
+  renderCategories();
+}
+
+
 
   function logout(){
     state.user = null;
@@ -87,8 +117,9 @@ document.addEventListener('DOMContentLoaded', () => {
       categoriesDiv.appendChild(el);
     });
   }
+
   function startQuiz(cat){
-    state.category = cat;
+
     state.questions = QUESTIONS[cat].slice(0, 5); 
     state.index = 0; state.score = 0;
     id('current-cat').textContent = cat;
@@ -184,8 +215,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if(isCorrect) state.score += 1;
+
     setTimeout(() => { state.index += 1; nextQuestion(); }, 1200);
   }
+
   function startTimer(){
     state.timer = 15;
     timeLeftEl.textContent = state.timer;
@@ -227,6 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => { state.index += 1; nextQuestion(); }, 1200);
   }
+
   function nextQuestion(){
     clearTimer();
     state.allowAnswer = true;
@@ -246,6 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const text = exited ? 'You exited the quiz.' : `You scored ${state.score} out of ${state.questions.length}`;
     resultText.textContent = text;
   }
+
   function saveAndGotoLeaderboard(){
     const lb = getLeaderboard();
     lb.push({ name: state.user || 'Guest', score: state.score, date: Date.now() });
@@ -270,10 +305,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function clearLeaderboard(){
-    if(confirm('Clear leaderboard?')){ saveLeaderboard([]); renderLeaderboard(); }
-  }
+function clearLeaderboard(){
+  const lbMsg = id("leaderboard-message");
+  saveLeaderboard([]);
+  renderLeaderboard();
+
+  lbMsg.style.color = "green";
+  lbMsg.innerText = "✅ Leaderboard Cleared!";
+
+  setTimeout(() => { lbMsg.innerText = ""; }, 3000);
+}
 
   function startDemo(){ showView('login'); }
 
 });
+

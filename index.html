@@ -8,28 +8,30 @@
 </head>
 <body>
   <div class="app card">
-    <section id="login-screen" class="screen">
-      <div class="auth">
-        <div class="logo">Qurious 🧠</div>
 
-        <div class="field">
-          <label class="small">Username</label>
-          <input id="login-username" type="text" placeholder="Enter username">
-        </div>
+<section id="login-screen" class="screen">
+  <div class="auth">
+    <div class="logo">Qurious 🧠</div>
 
-        <div class="field">
-          <label class="small">Password</label>
-          <input id="login-password" type="password" placeholder="Enter password">
-        </div>
+    <div class="field">
+      <label class="small">Username</label>
+      <input id="login-username" type="text" placeholder="Enter username">
+    </div>
 
-        <div class="row" style="gap:10px">
-          <button class="btn" id="login-btn">Login</button>
-          <button class="btn outline" id="goto-signup">Sign up</button>
-        </div>
+    <div class="field">
+      <label class="small">Password</label>
+      <input id="login-password" type="password" placeholder="Enter password">
+    </div>
 
-        <p class="small muted">This demo stores accounts locally in browser storage.</p>
-      </div>
-    </section>
+    <div class="row" style="gap:10px">
+      <button class="btn" id="login-btn">Login</button>
+      <button class="btn outline" id="goto-signup">Sign up</button>
+    </div>
+
+    <div id="login-message" style="color:red; font-weight:bold; margin-top:10px;"></div>
+  </div>
+</section>
+
     <section id="signup-screen" class="screen" style="display:none">
       <div class="auth">
         <div class="logo">Create account</div>
@@ -45,11 +47,14 @@
         </div>
 
         <div class="row" style="gap:10px">
-          <button class="btn" id="signup-btn">Create</button>
-          <button class="btn outline" id="back-to-login">Back</button>
-        </div>
+  <button class="btn" id="signup-btn">Create</button>
+  <button class="btn outline" id="back-to-login">Back</button>
+</div>
+
+<div id="signup-message" style="color:red; font-weight:bold; margin-top:10px;"></div>
       </div>
     </section>
+
     <section id="home-screen" class="screen" style="display:none">
       <div class="topbar row space-between">
         <div>
@@ -66,6 +71,7 @@
       <h3 class="title">Choose a category</h3>
       <div id="categories" class="categories"></div>
     </section>
+
     <section id="quiz-screen" class="screen" style="display:none">
       <div class="topbar row space-between" style="align-items:center">
         <button class="btn outline" id="exit-quiz">Exit</button>
@@ -81,6 +87,7 @@
         </div>
       </div>
     </section>
+
     <section id="result-screen" class="screen" style="display:none">
       <h2>Quiz Complete</h2>
       <p id="result-text"></p>
@@ -89,20 +96,25 @@
         <button class="btn outline" id="play-again">Play again</button>
       </div>
     </section>
-    <section id="leaderboard-screen" class="screen" style="display:none">
-      <div class="topbar row space-between">
-        <h2>Leaderboard 🏆</h2>
-        <div class="row" style="gap:8px">
-          <button class="btn" id="back-home">Home</button>
-          <button class="btn outline" id="clear-lb">Clear</button>
-        </div>
-      </div>
 
-      <ol id="leaderboard-list" class="leaderboard-list"></ol>
-    </section>
+<section id="leaderboard-screen" class="screen" style="display:none">
+  <div class="topbar row space-between">
+    <h2>Leaderboard 🏆</h2>
+    <div class="row" style="gap:8px">
+      <button class="btn" id="back-home">Home</button>
+      <button class="btn outline" id="clear-lb">Clear</button>
+      <div id="leaderboard-message" style="color:green; font-weight:bold; margin:10px 0;"></div>
+    </div>
+  </div>
+
+  <div id="leaderboard-message" style="color:green; font-weight:bold; margin:10px 0;"></div>
+  <ol id="leaderboard-list" class="leaderboard-list"></ol>
+</section>
+
 
   </div>
+  
   <script src="questions.js"></script>
   <script src="script.js"></script>
 </body>
-</html>  
+</html>
